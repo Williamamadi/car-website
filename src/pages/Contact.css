@@ -1,0 +1,13 @@
+/* Same variables as About.css: change them to match your homepage */
+.contact {
+ --bg: #12141a;
+ --surface: #1c1f28;
+ --text: #f2f3f5;
+ --muted: #a9aeb8;
+ --accent: #e5322d;
+ --error: #ff7a7a;
+ --radius: 12px;
+ background: var(--bg);
+ color: var(--text);
+ line-height: 1.6;
+}

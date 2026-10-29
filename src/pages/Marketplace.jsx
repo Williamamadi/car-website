@@ -4,7 +4,9 @@ import { Link, useSearchParams } from "react-router-dom";
 
 import CarCard from "../components/CarCard";
 
-import { brands, cars } from "../data/cars";
+import { brands } from "../data/cars";
+
+import { useCars } from "../context/CarsContext";
 
 import "./Marketplace.css";
 
@@ -41,6 +43,8 @@ export default function Marketplace() {
   const [params, setParams] = useSearchParams();
 
   const [showFilters, setShowFilters] = useState(false);
+
+  const { cars, loading } = useCars();
 
   const q = params.get("q") || "";
 
@@ -170,7 +174,10 @@ export default function Marketplace() {
 </select>
 </div>
 
-          {results.length > 0 ? (
+          {loading ? (
+<div className="mp-empty"><p>Loading cars...</p></div>
+
+          ) : results.length > 0 ? (
 <div className="mp-grid">
 
               {results.map((car) => <CarCard key={car.id} car={car} />)}

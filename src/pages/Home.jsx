@@ -4,7 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 import CarCard from "../components/CarCard";
 
-import { brands, cars } from "../data/cars";
+import { brands } from "../data/cars";
+
+import { useCars } from "../context/CarsContext";
 
 import "./Home.css";
 
@@ -106,6 +108,8 @@ function SearchBar() {
 
 export default function Home() {
 
+  const { cars } = useCars();
+
   return (
 <>
 
@@ -161,7 +165,7 @@ export default function Home() {
 </div>
 <div className="cars-grid">
 
-            {cars.map((car) => <CarCard key={car.id} car={car} />)}
+            {cars.slice(0, 6).map((car) => <CarCard key={car.id} car={car} />)}
 </div>
 </div>
 </section>

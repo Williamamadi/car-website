@@ -6,7 +6,7 @@ import BookingModal from "../components/BookingModal";
 
 import CarCard from "../components/CarCard";
 
-import { cars } from "../data/cars";
+import { useCars } from "../context/CarsContext";
 
 import "./CarDetails.css";
 
@@ -22,6 +22,8 @@ export default function CarDetails() {
 
   const { id } = useParams();
 
+  const { cars, loading } = useCars();
+
   const car = cars.find((c) => String(c.id) === id);
 
   const [showBooking, setShowBooking] = useState(false);
@@ -35,6 +37,8 @@ export default function CarDetails() {
     setActiveImg(0);
 
   }, [id]);
+
+  if (loading) return <section className="cd-container"><p>Loading car...</p></section>;
 
   if (!car) {
 

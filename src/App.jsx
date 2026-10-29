@@ -12,6 +12,9 @@ import Register from "./pages/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
+import { CarsProvider } from "./context/CarsContext";
+import About from "./pages/About";
+import Contact  from "./pages/Contact";
 
 
 export default function App() {
@@ -19,6 +22,7 @@ export default function App() {
   return (
 <BrowserRouter>
 <AuthProvider>
+    <CarsProvider>
 <Navbar />
 <main>
 <Routes>
@@ -28,6 +32,8 @@ export default function App() {
 <Route path="/login" element={<Login />} />
 <Route path="/register" element={<Register />} />
 <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+<Route path="/about" element={<About />} />
+<Route path="/contact" element={<Contact />} />
 
 
          
@@ -35,6 +41,7 @@ export default function App() {
 </main>
 <Footer />
 <ToastContainer position="top-right" autoClose={3500} />
+</CarsProvider>
 </AuthProvider>
 </BrowserRouter>
 

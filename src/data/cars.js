@@ -6,7 +6,7 @@ export const brands = [
 
   { name: "BMW", logo: logo("bmw", "1C69D4") },
 
-  { name: "Mercedes", logo: logo("mercedes", "444444") },
+  { name: "Mercedes", logo: "/logos/mercedes.png" },
 
   { name: "Ford", logo: logo("ford", "003478") },
 

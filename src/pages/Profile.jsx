@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 
 import FormField from "../components/FormField";
 
+import VendorCars from "../components/VendorCars";
+
 import { useAuth } from "../context/AuthContext";
 
 import "./Profile.css";
@@ -70,21 +72,20 @@ export default function Profile() {
 
   const onDelete = async () => {
 
-  try {
+    try {
 
-    await deleteAccount();
+      await deleteAccount();
 toast.info("Your account has been deleted");
 
-    navigate("/", { replace: true });
+      navigate("/", { replace: true });
 
-  } catch (err) {
+    } catch (err) {
 
-    toast.error(err.message);
+      toast.error(err.message);
 
-  }
+    }
 
-};
- 
+  };
 
   const details = [
 
@@ -158,6 +159,8 @@ toast.info("Your account has been deleted");
 
           )}
 </div>
+
+        {isVendor && <VendorCars />}
 <div className="pf-card pf-danger">
 <h2>Delete account</h2>
 <p>This permanently removes your account. This cannot be undone.</p>
